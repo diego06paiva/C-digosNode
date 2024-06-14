@@ -8,7 +8,7 @@ const porta = 3000;
 const path = require("path");
 
 
-const userRouters = require('./users')
+const userRouters = require('./users/users')
 
 
 app.use(
@@ -22,6 +22,7 @@ app.use(express.json())
 const basePath = path.join(__dirname, "templates");
 
 app.use('/users', userRouters)
+app.use()
 
 
 app.get("/", (req, res) => {
