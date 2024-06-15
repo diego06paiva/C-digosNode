@@ -7,23 +7,23 @@ const porta = 3000;
 
 const path = require("path");
 
-
-const userRouters = require('./users/users')
-
+const userRouters = require("./users/users");
 
 app.use(
   express.urlencoded({
     extended: true,
-  }),
-)
+  })
+);
 
-app.use(express.json())
+app.use(express.json());
 
 const basePath = path.join(__dirname, "templates");
 
-app.use('/users', userRouters)
-app.use()
+app.use("/", userRouters);
 
+app.get("/add", (req, res) => {
+  res.sendFile(`${basePath}/userform.html`);
+});
 
 app.get("/", (req, res) => {
   res.sendFile(`${basePath}/index.html`);
@@ -32,5 +32,3 @@ app.get("/", (req, res) => {
 app.listen(porta, () => {
   console.log(`Executado na porta: ${porta}`);
 });
-
-
