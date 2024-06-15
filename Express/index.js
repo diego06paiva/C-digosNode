@@ -7,13 +7,7 @@ const porta = 3000;
 
 const path = require("path");
 
-<<<<<<< HEAD
-const userRouters = require("./users");
-=======
-
-const userRouters = require('./users/users')
-
->>>>>>> 182585b02a7d9af4b709e18bafb8279987df8fde
+const userRouters = require("./users/users");
 
 app.use(
   express.urlencoded({
@@ -25,12 +19,7 @@ app.use(express.json());
 
 const basePath = path.join(__dirname, "templates");
 
-<<<<<<< HEAD
-app.use("/users", userRouters);
-=======
-app.use('/users', userRouters)
-app.use()
->>>>>>> 182585b02a7d9af4b709e18bafb8279987df8fde
+app.use("/", userRouters);
 
 app.get("/add", (req, res) => {
   res.sendFile(`${basePath}/userform.html`);
