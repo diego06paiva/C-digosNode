@@ -19,7 +19,7 @@ app.use(express.json());
 
 const basePath = path.join(__dirname, "templates");
 
-app.use("/", userRouters);
+app.use("/users", userRouters);
 
 app.get("/add", (req, res) => {
   res.sendFile(`${basePath}/userform.html`);
