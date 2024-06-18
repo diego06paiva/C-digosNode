@@ -1,13 +1,18 @@
 const express = require("express");
+const exphbs = require("express-handlebars");
 const mysql = require("mysql");
 const path = require("path");
 const porta = 3000;
 const app = express();
 
+const basepath = path.join(__dirname, "templates");
+app.set("views", path.join(__dirname, "views"));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const basepath = path.join(__dirname, "templates");
+app.engine("handlebars", exphbs.engine({ defaultLayout: false }));
+app.set("view engine", "handlebars");
 
 app.get("/app", (req, res) => {
   res.sendFile(`${basepath}/app.html`);
@@ -44,8 +49,12 @@ app.get("/livros", (req, res) => {
   });
 });
 
+app.get("/index", (req, res) => {
+  res.sendFile(path.join(basepath, "index.html")); // -- O que eu tenho que passar aqui
+});
+
 app.get("/", (req, res) => {
-  res.sendFile(`${basepath}/index.html`);
+  res.sendFile(path.join(basepath, "index.html"));
 });
 
 const conn = mysql.createConnection({
