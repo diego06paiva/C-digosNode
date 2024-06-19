@@ -50,7 +50,7 @@ app.get("/livros", (req, res) => {
 });
 
 app.get("/index", (req, res) => {
-  res.sendFile(path.join(basepath, "index.html")); // -- O que eu tenho que passar aqui
+  res.sendFile(path.join(basepath, "index.html"));
 });
 
 app.get("/", (req, res) => {
