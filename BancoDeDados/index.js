@@ -49,6 +49,21 @@ app.get("/livros", (req, res) => {
   });
 });
 
+app.get("/dados/:id", (req, res) => {
+  const id = req.params.id;
+
+  const sql = `SELECT * FROM livros WHERE id = ${id}`;
+
+  conn.query(sql, function (err, dados) {
+    if (err) {
+      console.log(`ERRO: ${err}`);
+      return;
+    }
+    const livros = dados[0];
+    res.render("dados", { livros });
+  });
+});
+
 app.get("/index", (req, res) => {
   res.sendFile(path.join(basepath, "index.html"));
 });
