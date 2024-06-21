@@ -65,11 +65,43 @@ app.get("/dados/:id", (req, res) => {
 });
 
 app.get("/index", (req, res) => {
-  res.sendFile(path.join(basepath, "index.html")); // -- O que eu tenho que passar aqui
+  res.sendFile(path.join(basepath, "index.html"));
 });
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(basepath, "index.html"));
+});
+
+app.get("/livros/edit/:id", (req, res) => {
+  const id = req.params.id;
+
+  const sql = `SELECT * FROM livros WHERE id = ${id}`;
+
+  conn.query(sql, function (err, dados) {
+    if (err) {
+      console.log(`ERRO: ${err}`);
+      return;
+    }
+
+    const livrosed = dados[0];
+    res.render("livrosed", { livrosed });
+  });
+});
+
+app.post("/livros/livrosed", (req, res) => {
+  const id = req.body.id;
+  const titulos = req.body.titulos;
+  const paginas = req.body.paginas;
+
+  const sql = `UPDATE livros SET titulos = '${titulos}', paginas = '${paginas}' WHERE id = '${id}'`;
+
+  conn.query(sql, function (err) {
+    if (err) {
+      console.log(`ERRO: ${err}`);
+      return;
+    }
+    res.redirect("/livros");
+  });
 });
 
 const conn = mysql.createConnection({

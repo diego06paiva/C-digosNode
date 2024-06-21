@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,14 +5,16 @@
     <title>Formulário</title>
   </head>
   <body>
-    <form action="/enviar-dados/livros" method="post">
+    <h1>EDITE O SEU LIVRO</h1>
+    <form action="/livros/livrosed" method="post">
+      <input type="hidden" name="id" value="{{livros.id}}" />
       <label for="titulos">titulo: </label>
       <input
         type="text"
         id="titulos"
         name="titulos"
         placeholder="digite o titulos"
-        required
+        value="{{livros.titulos}}"
       />
       <br />
       <label for="paginas">Páginas:</label>
@@ -22,10 +23,10 @@
         id="paginas"
         name="paginas"
         placeholder="digite a quantidade de páginas"
-        required
+        value="{{livros.paginas}}"
       />
       <br />
-      <button type="submit">Enviar</button>
+      <input type="submit" value="editar" />
       <a href="/index">Página inicial</a>
     </form>
   </body>
