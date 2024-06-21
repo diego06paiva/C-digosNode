@@ -1,6 +1,7 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
-const mysql = require("mysql");
+//const mysql = require("mysql");
+const mysql2 = require("mysql2")
 const path = require("path");
 const porta = 3000;
 const app = express();
@@ -13,6 +14,22 @@ app.use(express.json());
 
 app.engine("handlebars", exphbs.engine({ defaultLayout: false }));
 app.set("view engine", "handlebars");
+
+const conn = mysql2.createConnection({
+  host: "127.0.0.1",
+  user: "root",
+  password: "vasco",
+  database: "diego",
+  port: 3306
+});
+
+conn.connect(function (err) {
+  if (err) {
+    console.log(`Erro: ${err}`);
+  }
+
+  console.log("Conectou ao MySQL");
+});
 
 app.get("/app", (req, res) => {
   res.sendFile(`${basepath}/app.html`);
@@ -43,7 +60,7 @@ app.get("/livros", (req, res) => {
       return;
     }
     const livros = dados;
-    console.log(livros);
+    //console.log(livros);
 
     res.render("livros", { livros });
   });
@@ -88,37 +105,26 @@ app.get("/livros/edit/:id", (req, res) => {
   });
 });
 
-app.post("/livros/livrosed", (req, res) => {
+app.post("/livros/livrosed/", (req, res) => { 
   const id = req.body.id;
   const titulos = req.body.titulos;
   const paginas = req.body.paginas;
 
-  const sql = `UPDATE livros SET titulos = '${titulos}', paginas = '${paginas}' WHERE id = '${id}'`;
 
-  conn.query(sql, function (err) {
+  const sql = `UPDATE livros SET titulos = ?, paginas = ? WHERE id = ?`;
+
+  const values = [titulos, paginas, id]
+
+  conn.query(sql, values, function (err) {
     if (err) {
       console.log(`ERRO: ${err}`);
       return;
     }
-    res.redirect("/livros");
   });
+
+  res.redirect("/livros");
 });
 
-const conn = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "vasco",
-  database: "diego",
-});
-
-conn.connect(function (err) {
-  if (err) {
-    console.log(`Erro: ${err}`);
-  }
-
-  console.log("Conectou ao MySQL");
-
-  app.listen(porta, () => {
-    console.log(`Rodando na porta 3000`);
-  });
+app.listen(porta, () => {
+  console.log(`Rodando na porta 3000`);
 });

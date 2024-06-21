@@ -6,15 +6,15 @@
   </head>
   <body>
     <h1>EDITE O SEU LIVRO</h1>
-    <form action="/livros/livrosed" method="post">
-      <input type="hidden" name="id" value="{{livros.id}}" />
+    <form action='/livros/livrosed/' method="post">
+    <input type="hidden" name="id" id="id" value="{{livrosed.id}}"> 
       <label for="titulos">titulo: </label>
       <input
         type="text"
         id="titulos"
         name="titulos"
         placeholder="digite o titulos"
-        value="{{livros.titulos}}"
+        value="{{livrosed.titulos}}"
       />
       <br />
       <label for="paginas">Páginas:</label>
@@ -23,7 +23,7 @@
         id="paginas"
         name="paginas"
         placeholder="digite a quantidade de páginas"
-        value="{{livros.paginas}}"
+        value="{{livrosed.paginas}}"
       />
       <br />
       <input type="submit" value="editar" />
