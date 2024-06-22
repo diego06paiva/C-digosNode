@@ -1,0 +1,64 @@
+/* Estilos gerais para o corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+/* Estilos para o título h1 */
+h1 {
+  text-align: center;
+  color: #333;
+  margin-top: 20px;
+}
+
+/* Estilos para o h1 com a classe 'tdl' */
+h1.tdl {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: #1e90ff; /* Azul */
+}
+
+/* Estilos para o parágrafo com a classe 'pagina' */
+p.pagina {
+  text-align: center;
+  color: #666;
+  font-size: 18px;
+}
+
+/* Estilos para o link de editar */
+a.edit {
+  display: block;
+  width: 120px;
+  text-align: center;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: #007bff; /* Azul */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+a.edit:hover {
+  background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+}
+
+/* Estilos para o formulário de remover */
+form {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Estilos para o link de voltar */
+a {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  color: #007bff; /* Azul */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

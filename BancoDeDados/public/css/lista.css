@@ -1,0 +1,82 @@
+/* Estilos gerais para o corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Estilos para o título */
+h1 {
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+/* Estilos para o formulário */
+form {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilos para os rótulos (labels) */
+label {
+  display: block;
+  margin: 10px 0 5px;
+  font-size: 16px;
+  color: #333333;
+  width: 100%;
+}
+
+/* Estilos para os campos de entrada (inputs) */
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Estilos para o botão de envio */
+input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Estilos para o botão de envio ao passar o mouse */
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para o link */
+a {
+  display: block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+  text-align: center;
+}
+
+a:hover {
+  text-decoration: underline;
+}

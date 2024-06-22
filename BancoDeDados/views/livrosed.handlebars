@@ -3,11 +3,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formulário</title>
+    <link rel="stylesheet" href="/css/lista.css" />
   </head>
   <body>
     <h1>EDITE O SEU LIVRO</h1>
-    <form action='/livros/livrosed/' method="post">
-    <input type="hidden" name="id" id="id" value="{{livrosed.id}}"> 
+    <form action="/livros/livrosed/" method="post">
+      <input type="hidden" name="id" id="id" value="{{livrosed.id}}" />
       <label for="titulos">titulo: </label>
       <input
         type="text"
